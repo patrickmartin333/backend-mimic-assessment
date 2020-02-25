@@ -78,6 +78,20 @@ def print_mimic(mimic_dict, start_word):
         - Repeat this process 200 times
     """
     # +++your code here+++
+    mimic_dict = {}  # creates empty dict to store values
+    f = open(filename, 'r')  # opens file that will be passed in when called
+    # sets value of 't' to a string containing all lines within the file (could've used f.readlines() I believe...
+    t = f.read()
+
+    words = t.split()  # splits at whitespace, creates list of each word
+    previous_word = ''  # set string to empty paren
+    for word in words:
+        if not previous_word in mimic_dict:
+            # setting value of previous_word to each word
+            mimic_dict[previous_word] = word
+        else:
+            mimic_dict[previous_word].append(word)
+        previous_word = word  # setting previous_word to word
     pass
 
 
